@@ -8,3 +8,24 @@
   <strong>Text:</strong>
   <%= @question.text %>
 </p>
+
+<h2>Answers</h2>
+<% @question.answers.each do |answer| %>
+  <p>
+    <strong>Answer:</strong>
+    <%= answer.body %>
+  </p>
+<% end %>
+
+<h2>Add an answer:</h2>
+
+<%= form_for [@question, @question.answers.build] do |form| %>
+  <p>
+    <%= form.label :answer %><br>
+    <%= form.text_area :body %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
