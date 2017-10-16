@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :questions, only: [:create, :new]
+  get 'welcome/index'
+
+  resources :questions
+
+  root 'welcome#index'
 
 end
