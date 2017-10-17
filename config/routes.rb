@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :answers, only: [:index, :create]
   end
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   root 'welcome#index'
 
 end
